@@ -12,26 +12,27 @@ This document help you to run a lighweight tezos-node (in rolling mode). It will
 ```
 docker volume create --name tezos-data
 ```
+3. Change template.env name to .env
 
-3. download the last **rolling snapshot** and store it in the same directory as your docker-compose.yml file, under the name **snapshot**. You can download snapshots from:
+4. download the last **rolling snapshot** and store it in the same directory as your docker-compose.yml file, under the name **snapshot**. You can download snapshots from:
 
 * https://snapshots-tezos.giganode.io/
 * https://mainnet.xtz-shots.io/
 
 
-4. import the snapshot by running (if you get any error, you will have to delete and recreate the docker volume)
+5. import the snapshot by running (if you get any error, you will have to delete and recreate the docker volume)
 ```
 docker-compose run --rm import
 ```
 
-5. grab a coffee, buy a few NFTs, look at Netflix while waiting for the import to complete, it can take up to a few hours depending on your hardware specs.
+6. grab a coffee, buy a few NFTs, look at Netflix while waiting for the import to complete, it can take up to a few hours depending on your hardware specs.
 
-6. once import is done, just start your tezos node by running
+7. once import is done, just start your tezos node by running
 ```
 docker-compose up -d tezos
 ```
 
-7. verify in the logs that everything run fine
+8. verify in the logs that everything run fine
 ```
 docker-compose logs -f tezos
 ```
