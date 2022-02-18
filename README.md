@@ -29,6 +29,10 @@ docker volume create --name tezos-data
 ```
 3. Change template.env name to .env
 
+```
+sudo MV template.env .env
+```
+
 4. download the last **rolling snapshot** and store it in the same directory as your docker-compose.yml file, under the name **snapshot**. You can download snapshots from:
 
 * https://snapshots-tezos.giganode.io/
