@@ -1,6 +1,10 @@
 # Intro
 
 Thanks to NFTBIKER for this easy to use docker snapshot with SWAG reverse proxy. I have made the guide more noob-friendly. doga doga
+You're going to need a machine running linux, whether your home computer, or a VPS. You can also run the node on a windows computer using the Windows Subsystem for Linux.
+https://docs.microsoft.com/en-us/windows/wsl/install
+
+I recommend digital ocean as a vps provider if you're going that way. You get 100 dollar credit for 2 months if you use my refferel link. https://m.do.co/c/00845054b020 thank you if you do :D
 
 To use this, you must know how to install and run docker & docker-compose. Here are guides for ubuntu
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
@@ -13,8 +17,12 @@ follow that guide as well.
 This document help you to run a lighweight tezos-node (in rolling mode). It will allow you to send transactions to the blockchain, which can help to collect NFTs when public nodes are crawled. It will not help you to become a baker, or query past blockchain data, it's only just a node to send transactions.
 
 1. clone the repository and go into the directory where you stored your clone
+
+
+```
 sudo git clone https://github.com/PenguinsFlyGood/tezos-node/
 CD tezos-node
+```
 2. create a docker volume to store blockchain data, and allow this volume to survive pruning
 ```
 docker volume create --name tezos-data
@@ -67,7 +75,7 @@ Last, keep in mind that if you run this on your own personal computer, each time
 In Temple Wallet, you need to add a new node by following [MadFish explaination](https://madfish.crunch.help/temple-wallet/how-to-add-a-custom-rpc-to-the-temple-wallet)
 
 * If you installed your node on your computer, just switch to the predefined localhost node in Temple Wallet
-* If you installed your node on a VPS/server, for RPC URL, use http://server.ip:8732
+* If you installed your node on a VPS/server, for RPC URL, you need to do a reverse proxy as is stated in the next part of the guide
 
 For Lambda view, use: KT1CPuTzwC7h7uLXd5WQmpMFso1HxrLBUtpE
 
@@ -79,9 +87,11 @@ Still, it should be as simple as
 
 1. Copy template.env to .env, and set settings according to your needs (proper owned domain name must be set)
 
-2. Edit tznode.conf to set your server domain name
+2. Edit tznode.conf to set your server domain name.
 
-3. launch
+3. Change your DNS entry to point to your server IP. You may need to open ports in the firewall. I will edit the guide in the future to show how to do these steps.
+
+4. launch
 ```
 docker-compose up -d swag
 ```
