@@ -1,13 +1,20 @@
 # Intro
 
-To use this, you must know how to install and run docker & docker-compose, which is out of the scope of this tool.
+Thanks to NFTBIKER for this easy to use docker snapshot with SWAG reverse proxy. I have made the guide more noob-friendly. doga doga
+
+To use this, you must know how to install and run docker & docker-compose. Here are guides for ubuntu
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
+Do step 1. of that guide
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+follow that guide as well.
 
 # How to
 
 This document help you to run a lighweight tezos-node (in rolling mode). It will allow you to send transactions to the blockchain, which can help to collect NFTs when public nodes are crawled. It will not help you to become a baker, or query past blockchain data, it's only just a node to send transactions.
 
 1. clone the repository and go into the directory where you stored your clone
-
+sudo git clone https://github.com/PenguinsFlyGood/tezos-node/
+CD tezos-node
 2. create a docker volume to store blockchain data, and allow this volume to survive pruning
 ```
 docker volume create --name tezos-data
@@ -18,7 +25,10 @@ docker volume create --name tezos-data
 
 * https://snapshots-tezos.giganode.io/
 * https://mainnet.xtz-shots.io/
-
+downloading the file:
+wget https://mainnet.xtz-shots.io/rolling
+renaming it(replace xxxx with the actual name):
+sudo mv mainnet-xxxxx.rolling snapshot
 
 5. import the snapshot by running (if you get any error, you will have to delete and recreate the docker volume)
 ```
